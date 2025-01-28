@@ -1,0 +1,26 @@
+@use '../../styles/utils/variables.scss' as *;
+
+.tech-specs {
+  // width: 100%;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 21px;
+
+    &-name {
+      color: var(--secondaryText);
+      // color: $secondary-color;
+      padding-right: 20px;
+    }
+    &-value {
+      color: var(--secondaryTextHoverAndActive);
+      // color: $primary-color;
+      text-align: right;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}

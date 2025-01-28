@@ -1,0 +1,152 @@
+@use '../../styles/utils/mixins.scss' as *;
+@use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/animation.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url(../../../fonts/Mont.otf);
+}
+
+@font-face {
+  font-family: 'Mont Bold';
+  src: url(../../../fonts/Mont-Bold.otf);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--headerBackground);
+  justify-content: left;
+  align-items: center;
+  display: flex;
+  gap: $header-element-gap;
+  height: $header-height;
+  border-bottom: 1px solid var(--cardBorder);
+  z-index: 1000;
+
+  &__logo {
+    padding: 0 $header-padding;
+    transform: scale($header-logo-scale);
+
+    &--img {
+      color: var(--iconsColor);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: $header-nav-gap;
+    height: 100%;
+
+    &_link {
+      font-family: 'Mont Bold';
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+      align-content: center;
+
+      color: var(--secondaryText);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 11px;
+      letter-spacing: 0.04em;
+      height: 100%;
+
+      &:hover {
+        color: var(--secondaryTextHoverAndActive);
+      }
+    }
+  }
+
+  &__is-active {
+    color: var(--secondaryTextHoverAndActive);
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 4px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--headerUnderScore);
+      // background-color: $primary-color;
+      animation-duration: 0.5s;
+      animation-name: select;
+    }
+  }
+
+  &__buttons {
+    margin-left: auto;
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    &_element {
+      padding: $header-padding;
+      position: relative;
+      display: inline-block;
+      border-left: 1px solid var(--cardBorder);
+      color: var(--iconsColor);
+      cursor: pointer;
+
+      &--state {
+        box-sizing: border-box;
+        position: absolute;
+        top: 22%;
+        right: calc(50% - 14px);
+        height: 14px;
+        width: 14px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-family: 'Mont', sans-serif;
+        font-size: 9px;
+        line-height: 12px;
+
+        background-color: $secondary-accent-color;
+        color: $white-color;
+        border: 1px solid $white-color;
+        border-radius: 50%;
+
+        @include on-tablet {
+          top: 9px;
+        }
+
+        @include on-desktop {
+          top: 17px;
+        }
+      }
+    }
+  }
+
+  @include on-desktop {
+    $header-element-gap: 24px;
+    $header-nav-gap: 64px;
+    $header-height: 64px;
+    $header-padding: 22px;
+    $header-logo-scale: 1;
+
+    gap: $header-element-gap;
+    height: 64px;
+
+    &__logo {
+      padding: 0 $header-padding;
+      transform: scale($header-logo-scale);
+    }
+
+    &__nav {
+      gap: $header-nav-gap;
+    }
+
+    &__buttons_element {
+      padding: $header-padding;
+    }
+  }
+}
+
+.theme {
+  line-height: 20px;
+}

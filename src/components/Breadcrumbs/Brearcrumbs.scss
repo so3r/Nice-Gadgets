@@ -1,0 +1,42 @@
+@use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/mixins.scss' as *;
+@font-face {
+  font-family: 'Mont';
+  src: url('/fonts/Mont-Regular.otf');
+}
+
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  @include on-tablet {
+    padding-bottom: 40px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    &--icon {
+      color: var(--arrowsColor);
+    }
+
+    &--link {
+      text-transform: capitalize;
+      padding: 8px;
+      text-decoration: none;
+      color: var(--secondaryText);
+      // color: $secondary-color;
+      font-family: 'Mont', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+    }
+  }
+}

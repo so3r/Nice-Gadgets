@@ -1,0 +1,83 @@
+@use '../../styles/utils/mixins.scss' as *;
+@use '../../styles/utils/variables.scss' as *;
+
+.product-list {
+  justify-items: center;
+  align-items: center;
+  @include page-grid;
+
+  &__card {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-tablet-large {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  grid-column: 1 / -1;
+  justify-content: center;
+  list-style: none;
+  gap: 8px;
+  padding: 40px 0 80px;
+
+  &-page,
+  &-next,
+  &-prev {
+    background-color: var(--pageBackground);
+    border: 1px solid var(--paginationBorder);
+    // border: 1px solid #e2e6e9;
+    border-radius: 50%;
+    box-sizing: border-box;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    font-family: 'Mont', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--paginationText);
+  }
+
+  &-page:hover {
+    border: 1px solid var(--paginationBorderHover);
+    // border: 1px solid $primary-color;
+  }
+
+  &-active {
+    color: var(--paginationTextActive);
+    background-color: var(--paginationBackGround);
+    // background-color: $primary-color;
+  }
+
+  &-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &-break {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    color: var(--paginationBreakColor);
+    cursor: pointer;
+  }
+}

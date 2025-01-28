@@ -1,0 +1,75 @@
+@use '../../styles/utils/mixins.scss' as *;
+@use '../../styles/utils/variables.scss' as *;
+
+@font-face {
+  font-family: 'Mont Bold';
+  src: url(/fonts/Mont-Bold.otf);
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url(/fonts/Mont-Regular.otf);
+}
+
+.message {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(226, 230, 233, 0.5);
+
+  &__content {
+    padding: 24px;
+    border: 1px solid $accent-color;
+    border-radius: 8px;
+    background-color: $white-color;
+
+    &__text {
+      font-family: 'Mont Bold', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 41px;
+      letter-spacing: -0.01em;
+      color: $primary-color;
+      padding-bottom: 24px;
+
+      @include on-tablet {
+        font-size: 32px;
+      }
+    }
+
+    &__button {
+      font-family: 'Mont', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 21px;
+      height: 40px;
+      margin-top: 24px;
+      width: 100%;
+      color: $white-color;
+      background-color: $accent-color;
+      border: none;
+      border-radius: 8px;
+
+      @include on-desktop {
+        &:hover {
+          cursor: pointer;
+          box-shadow: 0px 3px 13px 0 $primary-color;
+        }
+      }
+
+      &:active {
+        color: $accent-color;
+        background-color: $white-color;
+        border: 1px solid $elements-color;
+        box-shadow: none;
+      }
+    }
+  }
+}

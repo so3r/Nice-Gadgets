@@ -1,0 +1,252 @@
+@use './variables.scss' as *;
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet-large {
+  @media (min-width: $tablet-large-min-width) {
+    @content;
+  }
+}
+
+@mixin on-mobile-large {
+  @media (min-width: $mobile-large-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  column-gap: 16px;
+  row-gap: 40px;
+  grid-template-columns: repeat(4, 1fr);
+
+  @include on-tablet {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include on-tablet-large {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(24, 1fr);
+  }
+}
+
+@mixin page-min-height {
+  min-height: calc(100vh - 246px - $header-height);
+
+  @include on-tablet {
+    min-height: calc(100vh - 96px - $header-height);
+  }
+
+  @include on-desktop {
+    min-height: calc(100vh - 112px - $header-height);
+  }
+}
+
+$themes: (
+  pageBackground: (
+    darkTheme: $hover-bg-color-dark,
+    lightTheme: $hover-bg-color,
+  ),
+
+  cardBackGround: (
+    darkTheme: #71797e,
+    lightTheme: $white-color,
+  ),
+  cardBoxShadow: (
+    darkTheme: $elements-color,
+    lightTheme: $card-box-shadow,
+  ),
+  cardBorder: (
+    darkTheme: $white-color,
+    lightTheme: $elements-color,
+  ),
+  cardCharactericticsColor: (
+    darkTheme: $primary-color,
+    lightTheme: $secondary-color,
+  ),
+
+  arrowsColor: (
+    darkTheme: $white-color,
+    lightTheme: #b4bdc4,
+  ),
+
+  secondaryText: (
+    darkTheme: $elements-color,
+    lightTheme: $secondary-color,
+  ),
+  secondaryTextHoverAndActive: (
+    darkTheme: $icons-color,
+    lightTheme: $primary-color,
+  ),
+
+  iconsColor: (
+    darkTheme: $white-color,
+    lightTheme: $primary-color,
+  ),
+  iconsBorder: (
+    darkTheme: $white-color,
+    lightTheme: $icons-color,
+  ),
+  iconsBorderHover: (
+    darkTheme: $secondary-color,
+    lightTheme: $primary-color,
+  ),
+  iconHeartBorder: (
+    darkTheme: $elements-color,
+    lightTheme: $secondary-color,
+  ),
+
+  minusPlusDisabled: (
+    darkTheme: $secondary-color,
+    lightTheme: $icons-color,
+  ),
+  minusPlusText: (
+    darkTheme: $white-color,
+    lightTheme: $black-color,
+  ),
+
+  headerUnderScore: (
+    darkTheme: $icons-color,
+    lightTheme: $primary-color,
+  ),
+
+  titleColor: (
+    darkTheme: $white-color,
+    lightTheme: $primary-color,
+  ),
+
+  dropdownBackground: (
+    darkTheme: $elements-color,
+    lightTheme: transparent,
+  ),
+  dropdownBorder: (
+    darkTheme: $elements-color,
+    lightTheme: $icons-color,
+  ),
+
+  paginationText: (
+    darkTheme: $white-color,
+    lightTheme: $primary-color,
+  ),
+  paginationTextActive: (
+    darkTheme: $primary-color,
+    lightTheme: $white-color,
+  ),
+  paginationBorder: (
+    darkTheme: $icons-color,
+    lightTheme: $elements-color,
+  ),
+  paginationBorderHover: (
+    darkTheme: $white-color,
+    lightTheme: $primary-color,
+  ),
+  paginationBackGround: (
+    darkTheme: $white-color,
+    lightTheme: $primary-color,
+  ),
+  paginationBreakColor: (
+    darkTheme: $white-color,
+    lightTheme: #666,
+  ),
+
+  footerBackGround: (
+    darkTheme: #161618,
+    lightTheme: $white-color,
+  ),
+  footerLinks: (
+    darkTheme: $elements-color,
+    lightTheme: $secondary-color,
+  ),
+
+  headerBackground: (
+    darkTheme: #161618,
+    lightTheme: $hover-bg-color,
+  ),
+
+  galleryBorderColor: (
+    darkTheme: $primary-color,
+    lightTheme: $icons-color,
+  ),
+  galleryBorderColorActive: (
+    darkTheme: $icons-color,
+    lightTheme: $primary-color,
+  ),
+  capacityActiveText: (
+    darkTheme: $primary-color,
+    lightTheme: $white-color,
+  ),
+  capacityActiveBackground: (
+    darkTheme: $white-color,
+    lightTheme: $primary-color,
+  ),
+  // chooseColorButton: (
+  //   darkTheme: $primary-color,
+  //   lightTheme: $white-color,
+  // ),
+  swiperButtonsBorder: (
+      darkTheme: #b4bdc3,
+      lightTheme: $secondary-color,
+    ),
+  swiperPaginationBackground: (
+    darkTheme: transparent,
+    lightTheme: $white-color,
+  ),
+  swiperPaginationBullet: (
+    darkTheme: $white-color,
+    lightTheme: #89939a,
+  ),
+
+  arrowDisabled: (
+    darkTheme: $secondary-color,
+    lightTheme: $icons-color,
+  ),
+
+  catAnimationEarHair: (
+    darkTheme: $hover-bg-color-dark,
+    lightTheme: $white-color,
+  ),
+
+  inputBorderFocusAndHover: (
+    darkTheme: $white-color,
+    lightTheme: $secondary-color,
+  ),
+  searchIcon: (
+    darkTheme: $secondary-color,
+    lightTheme: $icons-color,
+  ),
+  searchIconHover: (
+    darkTheme: $primary-color,
+    lightTheme: $secondary-color,
+  ),
+);
+
+@mixin styles($mode) {
+  @each $key, $map in $themes {
+    @each $prop, $color in $map {
+      @if $prop == $mode {
+        --#{$key}: #{$color};
+      }
+    }
+  }
+}
+
+.dark-mode {
+  @include styles('darkTheme');
+}
+
+.light-mode {
+  @include styles('lightTheme');
+}

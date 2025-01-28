@@ -1,0 +1,97 @@
+@use '../../styles/utils/mixins.scss' as *;
+@use '../../styles/utils/variables.scss' as *;
+
+@font-face {
+  font-family: 'Mont Bold';
+  src: url(../../../fonts/Mont-Bold.otf);
+}
+
+.burger {
+  padding-top: 24px;
+  flex-direction: column;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pageBackground);
+  // background-color: $hover-bg-color;
+  right: 20%;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  transition: 0.5s;
+
+  &__is-open {
+    visibility: visible;
+    opacity: 3;
+    right: 0;
+    height: calc(100% - $header-height);
+    width: 100%;
+    z-index: 1000;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    &_link {
+      font-family: 'Mont Bold';
+      display: inline-flex;
+      flex-direction: column;
+      position: relative;
+      text-decoration: none;
+      align-items: center;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      color: var(--secondaryText);
+      // color: $secondary-color;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 11px;
+      letter-spacing: 0.04em;
+      width: max-content;
+    }
+  }
+
+  &__is-active {
+    color: var(--secondaryTextHoverAndActive);
+    // color: $primary-color;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 4px;
+      bottom: 0;
+      width: 100%;
+      background-color: var(--secondaryTextHoverAndActive);
+      // background-color: $primary-color;
+      animation: select 0.5s;
+    }
+  }
+
+  &__buttons {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    &_element {
+      padding: $header-padding;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      border: 1px solid var(--paginationBorder);
+      // border: 1px solid $elements-color;
+      color: var(--iconsColor);
+      width: 50%;
+    }
+  }
+}
+
+.set-overflow {
+  overflow-y: hidden;
+}

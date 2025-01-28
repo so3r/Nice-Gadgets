@@ -1,0 +1,114 @@
+@use '../../styles/utils/mixins.scss' as *;
+@use '../../styles/utils/variables.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url('/fonts/Mont-Regular.otf');
+}
+@font-face {
+  font-family: 'Mont-Bold';
+  src: url('/fonts/Mont-Bold.otf');
+}
+
+.sliderProducts {
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  &__title-content {
+    font-family: 'Mont Bold';
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 30.8px;
+    text-align: left;
+    letter-spacing: -0.01em;
+    width: 136px;
+    color: var(--titleColor);
+
+    @include on-tablet {
+      width: 491px;
+    }
+
+    @include on-desktop {
+      width: 560px;
+    }
+  }
+
+  &-buttons-wrapper {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.swiper-wrapper-products {
+  box-sizing: border-box;
+  margin-block: 0 56px;
+  padding-bottom: 10px;
+  height: 526px;
+  width: 100%;
+
+  @include on-tablet {
+    margin-block: 0 64px;
+    height: 577px;
+  }
+
+  @include on-desktop {
+    margin-block: 0 80px;
+    height: 571px;
+  }
+}
+
+.swiper-slide-productcard {
+  box-sizing: border-box;
+  padding: 10px;
+  width: auto;
+  max-height: 439px;
+
+  @include on-tablet {
+    // width: 237px;
+    max-height: 512px;
+  }
+
+  @include on-desktop {
+    // width: 272px;
+    max-height: 506px;
+  }
+}
+
+.prevButton,
+.nextButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 48px;
+  border: 1px solid $elements-color;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 10;
+
+  &:not(.disabled) svg path {
+    color: var(--iconsColor);
+    // fill: $primary-color;
+  }
+
+  &.disabled svg path {
+    border-color: light rgb(247, 234, 234);
+    cursor: not-allowed;
+    svg path {
+      color: $secondary-color;
+    }
+  }
+}
+
+.icon__color {
+  color: var(--arrowDisabled);
+}
+
+// .swiper-wrapper {
+//   padding: 10px;
+// }

@@ -1,0 +1,162 @@
+@use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/mixins.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url(/fonts/Mont-Regular.otf);
+}
+
+@font-face {
+  font-family: 'Mont Bold';
+  src: url('/fonts/Mont-Bold.otf');
+}
+
+.card {
+  height: 160px;
+  background-color: var(--cardBackGround);
+  // background-color: $white-color;
+
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--cardBorder);
+  // border: 1px solid #e2e6e9;
+  border-radius: 16px;
+  padding: 16px;
+  justify-content: space-between;
+
+  @include on-tablet {
+    flex-direction: row;
+    height: 128px;
+    padding: 24px;
+    align-items: center;
+  }
+
+  &__firstRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 80px;
+    gap: 16px;
+
+    @include on-tablet {
+      gap: 24px;
+    }
+
+    &--close {
+      margin-right: 16px;
+      cursor: pointer;
+      &--img {
+        width: 16px;
+        height: 16px;
+        color: var(--arrowsColor);
+        // color: $icons-color;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+
+    &--phone {
+      height: 80px;
+      width: 80px;
+      padding: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &--img {
+        max-width: 66px;
+        max-height: 66px;
+      }
+    }
+
+    &--info {
+      flex-flow: 1;
+      font-family: 'Mont', sans-serif;
+      color: var(--titleColor);
+      // color: $primary-color;
+      font-size: 16px;
+      line-height: 21px;
+      text-decoration: none;
+    }
+  }
+
+  &__secondRow {
+    display: flex;
+    flex-direction: row;
+    height: 32px;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      gap: 24px;
+    }
+
+    &--control {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      &--minus {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--iconsBorder);
+        // border: 1px solid $icons-color;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        color: var(--minusPlusText);
+        // color: #000000;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+          border-color: var(--iconsBorderHover);
+        }
+      }
+
+      &--quantity {
+        font-family: 'Mont', sans-serif;
+        color: #000000;
+        font-size: 14px;
+        line-height: 21px;
+      }
+
+      &--plus {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--iconsBorder);
+        // border: 1px solid $icons-color;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+        color: var(--minusPlusText);
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+          border-color: var(--iconsBorderHover);
+          // border-color: $primary-color;
+        }
+      }
+    }
+
+    &--price {
+      font-family: 'Mont Bold', sans-serif;
+      color: $primary-color;
+      font-size: 22px;
+    }
+  }
+}
+
+.disabled {
+  cursor: default;
+  border-color: $elements-color;
+  color: var(--$icons-color);
+  // color: $icons-color;
+
+  &:hover {
+    border-color: $elements-color;
+  }
+}

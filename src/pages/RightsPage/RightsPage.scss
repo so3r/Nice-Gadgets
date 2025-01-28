@@ -1,0 +1,64 @@
+@use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/mixins.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url('/fonts/Mont-Regular.otf');
+}
+@font-face {
+  font-family: 'Mont-Bold';
+  src: url('/fonts/Mont-Bold.otf');
+}
+@font-face {
+  font-family: 'Mont-SemiBold';
+  src: url('/fonts/Mont-SemiBold.otf');
+}
+
+.rights {
+  font-family: 'Mont', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: $secondary-color;
+
+  @include page-min-height;
+
+  @include on-tablet {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  @include on-desktop {
+    gap: 40px;
+  }
+
+  &__image {
+    width: calc(30% - 10px);
+    border-radius: 50%;
+    border: 1px solid $secondary-color;
+    transition: transform 0.8s ease-in-out;
+
+    &:hover {
+      transform: rotateY(360deg);
+    }
+  }
+
+  &__text {
+    width: calc(70% - 10px);
+    font-size: 12px;
+
+    @include on-tablet {
+      font-size: 16px;
+    }
+
+    @include on-desktop {
+      font-size: 18px;
+    }
+  }
+
+  > * {
+    flex-shrink: 0;
+  }
+}

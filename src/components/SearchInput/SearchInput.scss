@@ -1,0 +1,47 @@
+@use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/mixins.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url(../../../fonts/Mont-Regular.otf);
+}
+
+.search {
+  color: var(--searchIcon);
+  // color: $icons-color;
+  position: relative;
+
+  &:hover {
+    color: var(--searchIconHover);
+    // color: $secondary-color;
+  }
+
+  &__input {
+    color: $primary-color;
+    width: 100%;
+    font-family: 'Mont', sans-serif;
+    height: 40px;
+    padding: 10px 30px;
+    border: 1px solid var(--dropdownBorder);
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 21px;
+    background-color: var(--dropdownBackground);
+    outline: 0;
+
+    &:hover {
+      border-color: var(--inputBorderFocusAndHover);
+      // border-color: $secondary-color;
+    }
+    &:focus {
+      border-color: var(--inputBorderFocusAndHover);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    z-index: 1;
+    left: 10px;
+    top: 12px;
+  }
+}

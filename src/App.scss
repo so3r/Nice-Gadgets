@@ -1,0 +1,87 @@
+@use './styles/utils/mixins.scss' as *;
+@use './styles/utils/variables.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url(../../../fonts/Mont-Regular.otf);
+}
+
+@font-face {
+  font-family: 'Mont Bold';
+  src: url(../../../fonts/Mont-Bold.otf);
+}
+
+@font-face {
+  font-family: 'Mont SemiBold';
+  src: url(../../../fonts/Mont-SemiBold.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1136px;
+  margin: 0 auto;
+  padding-inline: 16px;
+
+  @include on-tablet {
+    padding-inline: 24px;
+  }
+
+  @include on-desktop {
+    padding-inline: 32px;
+  }
+}
+
+.main {
+  background-color: var(--pageBackground);
+  // background-color: $hover-bg-color;
+}
+
+.empty {
+  font-family: 'Mont', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding-block: 20px;
+
+  @include page-min-height;
+
+  &__image {
+    min-width: 30%;
+    max-width: 35%;
+  }
+
+  &__title {
+    font-family: 'Mont-Bold', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      font-size: 22px;
+    }
+
+    @include on-desktop {
+      font-size: 32px;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+
+    @include on-tablet {
+      font-size: 20px;
+    }
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+  }
+}

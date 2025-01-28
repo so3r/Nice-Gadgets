@@ -1,0 +1,37 @@
+@use '../../styles/utils/variables.scss' as *;
+
+@font-face {
+  font-family: 'Mont SemiBold';
+  src: url('/fonts/Mont-SemiBold.otf');
+}
+
+.wrapper {
+  width: 66px;
+}
+
+.back {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  cursor: pointer;
+
+  &__icon {
+    height: 16px;
+    width: 16px;
+    color: var(--arrowsColor);
+    // display: block;
+  }
+  &__text {
+    display: block;
+    font-family: 'Mont SemiBold';
+    color: var(--secondaryText);
+    // color: $secondary-color;
+    font-size: 12px;
+    line-height: 15px;
+
+    &:hover {
+      color: var(--secondaryTextHoverAndActive);
+      // color: $primary-color;
+    }
+  }
+}

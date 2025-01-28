@@ -1,0 +1,188 @@
+@use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/mixins.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url('/fonts/Mont-Regular.otf');
+}
+@font-face {
+  font-family: 'Mont-Bold';
+  src: url('/fonts/Mont-Bold.otf');
+}
+@font-face {
+  font-family: 'Mont-SemiBold';
+  src: url('/fonts/Mont-SemiBold.otf');
+}
+
+.product-card {
+  font-family: 'Mont', sans-serif;
+  max-width: min-content;
+  min-width: 148px;
+  padding: 32px;
+  border: 1px solid var(--cardBorder);
+  // border: 1px solid $elements-color;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  background-color: var(--cardBackGround);
+
+  &:hover {
+    box-shadow: 0px 3px 13px 0 var(--cardBoxShadow);
+    // box-shadow: 0px 3px 13px 0 #17203166;
+  }
+
+  &__image {
+    margin-bottom: 16px;
+    max-width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-img {
+      height: 130px;
+      width: 215px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+      @include on-tablet {
+        height: 196px;
+      }
+      @include on-desktop {
+        width: 200px;
+      }
+    }
+
+    &-img:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__title {
+    height: 30px;
+    font-size: 12px;
+    font-family: 'Mont';
+    color: var(--titleColor);
+    // color: $primary-color;
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 21px;
+    text-align: left;
+
+    @include on-mobile-large {
+      font-size: 14px;
+    }
+  }
+
+  &__price {
+    font-size: 22px;
+    display: flex;
+    font-family: 'Mont-Bold';
+    font-weight: 800;
+    flex-direction: row;
+    gap: 8px;
+
+    &-current {
+      font-family: 'Mont-Bold';
+      font-weight: 800;
+    }
+
+    &-no-discount {
+      color: var(--secondaryText);
+      // color: $secondary-color;
+      font-family: 'Mont';
+      font-weight: 500;
+      text-decoration: line-through;
+    }
+  }
+
+  &__divider {
+    width: 100%;
+    background-color: $elements-color;
+    height: 1px;
+  }
+
+  &__characteristics {
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__characteristic {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Mont-SemiBold';
+    font-weight: 600;
+    color: $primary-color;
+    font-size: 12px;
+
+    &-name {
+      color: var(--cardCharactericticsColor);
+      // color: $secondary-color;
+      font-family: 'Mont-SemiBold';
+      font-weight: 700;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__button {
+    height: 40px;
+    color: $white-color;
+    background-color: $accent-color;
+    border-radius: 8px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0px 2px 13px 0 #17203166;
+    }
+
+    &--add {
+      width: 75%;
+    }
+
+    &--added {
+      color: $accent-color;
+      background-color: $white-color;
+      border: 1px solid $elements-color;
+    }
+
+    &--favorite {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid var(--cardCharactericticsColor);
+      background: var(--cardBackGround);
+      // background: $white-color;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+
+      & .product-card__icon {
+        color: $primary-color;
+        width: 90%;
+
+        &--active {
+          color: $secondary-accent-color;
+          fill: $secondary-accent-color;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+        border: 1px solid $primary-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,201 @@
+@use '../../styles/utils/mixins.scss' as *;
+@use '../../styles/utils/variables.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url('/fonts/Mont-Regular.otf');
+}
+@font-face {
+  font-family: 'Mont-Bold';
+  src: url('/fonts/Mont-Bold.otf');
+}
+
+.PicturesSlider {
+  margin: 0 -16px 56px;
+  height: 352px;
+  background-color: transparent;
+  position: relative;
+
+  @include on-tablet {
+    margin: 0 0 64px;
+    height: 221px;
+  }
+
+  @include on-desktop {
+    margin: 0 0 80px;
+    height: 432px;
+  }
+
+  .SwiperSlide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ContentWrapper {
+    display: flex;
+    width: 100%;
+    height: 320px;
+    background-color: $primary-color;
+    position: relative;
+
+    @include on-tablet {
+      width: calc(100% - 99px);
+      height: 189px;
+    }
+
+    @include on-desktop {
+      width: calc(100% - 96px);
+      height: 400px;
+    }
+
+    .TextContent {
+      flex: 1;
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: $primary-color;
+      }
+
+      .TextContent_wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        padding: 10% 10%;
+        width: 90%;
+        height: 90%;
+        background-color: rgb(37, 35, 35);
+        border-radius: 10px;
+        transform: scale(0.9);
+      }
+
+      .TextContent_title {
+        font-family: 'Mont Bold';
+        font-size: 24px;
+        padding-bottom: 5%;
+        color: $secondary-accent-color;
+        line-height: 1;
+
+        @include on-desktop {
+          font-size: 44px;
+        }
+      }
+
+      .TextContent_text {
+        font-family: 'Mont', sans-serif;
+        font-size: 12px;
+        color: $white-color;
+
+        @include on-desktop {
+          font-size: 24px;
+        }
+      }
+
+      .TextContent_button {
+        display: flex;
+        box-sizing: border-box;
+        padding: 10px;
+        width: fit-content;
+        font-family: 'Mont Bold';
+        font-size: 18px;
+        text-decoration: none;
+        color: $white-color;
+        border-radius: 30px;
+        border: 1px solid $secondary-color;
+        cursor: pointer;
+        background-color: rgb(37, 35, 35);
+
+        @include on-desktop {
+          font-size: 24px;
+        }
+
+        &:hover {
+          background-color: $secondary-accent-color;
+        }
+      }
+    }
+
+    .ImgWrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+
+      img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .swiper-pagination {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 24px;
+    background-color: var(--swiperPaginationBackground);
+    // background-color: #fff;
+  }
+
+  .swiper-pagination-bullet {
+    width: 14px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--swiperPaginationBullet);
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: var(--iconsColor);
+    // background-color: $primary-color;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      width: 32px;
+      height: 189px;
+      top: 0;
+      margin: 0;
+      border: 1px solid var(--swiperButtonsBorder);
+      // border: 1px solid $secondary-color;
+      border-radius: 48px;
+      background-color: transparent;
+
+      @include on-desktop {
+        height: 400px;
+      }
+
+      &.swiper-button-next {
+        right: 0;
+      }
+
+      &.swiper-button-prev {
+        left: 0;
+      }
+
+      &::after {
+        font-size: 16px;
+        color: var(--iconsColor);
+        // color: #000;
+      }
+    }
+  }
+}
+
+.button-pagination {
+  border: 0;
+  bottom: 0;
+}
