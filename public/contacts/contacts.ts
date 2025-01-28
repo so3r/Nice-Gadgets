@@ -18,7 +18,7 @@ export const contacts = [
     name: 'Oleksii Torokhtii',
     photo: 'photos/30.05.24338.jpg',
     githubLink: 'https://github.com/so3r',
-    telegramLink: 'https://t.me/Alex_torohtiy',
+    telegramLink: 'https://t.me/oleksii_torokhtii',
   },
   {
     id: 4,
